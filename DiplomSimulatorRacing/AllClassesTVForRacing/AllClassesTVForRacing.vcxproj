@@ -28,6 +28,7 @@
     <ClInclude Include="Eagle.h" />
     <ClInclude Include="GroundTransport.h" />
     <ClInclude Include="Kentaur.h" />
+    <ClInclude Include="Macros.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AirTransport.cpp" />
@@ -126,7 +127,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;ALLCLASSESTVFORRACING_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;ALLCLASSESTV_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>

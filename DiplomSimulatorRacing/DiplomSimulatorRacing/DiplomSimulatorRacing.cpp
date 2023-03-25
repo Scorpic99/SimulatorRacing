@@ -157,20 +157,20 @@ double groundRace(int numberTS, int distance) {//ground function
     GroundTransport* GT = new GroundTransport;
 
     if (numberTS == 1) {
-        Camel objCamel;
-        GT = &objCamel;
+        Camel* objCamel = new Camel;
+        GT = objCamel;
     }
     else if (numberTS == 2) {
-        CamelSpidrun objCamelSpidrun;
-        GT = &objCamelSpidrun;
+        CamelSpidrun* objCamelSpidrun = new CamelSpidrun;
+        GT = objCamelSpidrun;
     }
     else if (numberTS == 3) {
-        Kentaur objKentaur;
-        GT = &objKentaur;
+        Kentaur* objKentaur = new Kentaur;
+        GT = objKentaur;
     }
     else if (numberTS == 4) {
-        BootAllvechicle objBootAllvechicle;
-        GT = &objBootAllvechicle;
+        BootAllvechicle* objBootAllvechicle = new BootAllvechicle;
+        GT = objBootAllvechicle;
     }
 
     int timeMovingWay = 0, countRelax = 0;
@@ -181,6 +181,7 @@ double groundRace(int numberTS, int distance) {//ground function
     {
         timeRelaxMultCount = +GT->DurationRelax(counter);
     }
+    delete GT;
     return timeMovingWay + timeRelaxMultCount;
 
 }
@@ -188,20 +189,22 @@ double airRace(int numberTS, int distance) {//air function
     AirTransport* AT = new AirTransport;
 
     if (numberTS == 5) {
-        CarpetAirplane objCarpetAirplane;
-        AT = &objCarpetAirplane;
+        CarpetAirplane* objCarpetAirplane = new CarpetAirplane;
+        AT = objCarpetAirplane;
     }
     else if (numberTS == 6) {
-        Eagle objEagle;
-        AT = &objEagle;
+        Eagle* objEagle = new Eagle;
+        AT = objEagle;
     }
     else if (numberTS == 7) {
-        Broom objBroom;
-        AT = &objBroom;
+        Broom* objBroom = new Broom;
+        AT = objBroom;
     }
 
     int durationWithKoeffic = distance * (1 - (AT->CoefficientSortsDistance(distance) / 100));
-    return durationWithKoeffic / AT->getSpeedMove();
+    int tempSpeedMove = AT->getSpeedMove();
+    delete AT;
+    return durationWithKoeffic / tempSpeedMove;
 }
 
 
@@ -235,12 +238,10 @@ int main()
 
         std::cout << "Укажите длину дистанции (Должна быть положительна): " << std::endl;
         std::cin >> distance;
-        if (distance < 0) {
-            while (distance < 0) {
-                std::cout << "Дистанция не может быть отрицательной, введите еще раз: " << std::endl;
-                std::cin >> distance;
-            }
-        }
+		while (distance < 0) {
+			std::cout << "Дистанция не может быть отрицательной, введите еще раз: " << std::endl;
+			std::cin >> distance;
+		}
         std::cout << "Должно быть зарегистрировано хотя бы 2 транспортных средства" << std::endl;
         std::cout << "1. Зарегистрировать транспорт" << std::endl
             << "Выберете действие: ";
@@ -595,4 +596,5 @@ int main()
             break;
         }
 	}
+    return 0;
 }
