@@ -154,7 +154,7 @@
 //};
 
 double groundRace(int numberTS, int distance) {//ground function
-    GroundTransport* GT = new GroundTransport;
+    GroundTransport* GT = nullptr;
 
     if (numberTS == 1) {
         Camel* objCamel = new Camel;
@@ -189,7 +189,7 @@ double airRace(int numberTS, int distance) {//air function
     AirTransport* AT = new AirTransport;
 
     if (numberTS == 5) {
-        CarpetAirplane* objCarpetAirplane = new CarpetAirplane;
+        CarpetAirplane* objCarpetAirplane = nullptr;
         AT = objCarpetAirplane;
     }
     else if (numberTS == 6) {
