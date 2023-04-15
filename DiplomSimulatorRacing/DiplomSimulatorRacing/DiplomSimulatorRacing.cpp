@@ -186,10 +186,10 @@ double groundRace(int numberTS, int distance) {//ground function
 
 }
 double airRace(int numberTS, int distance) {//air function
-    AirTransport* AT = new AirTransport;
+    AirTransport* AT = nullptr;
 
     if (numberTS == 5) {
-        CarpetAirplane* objCarpetAirplane = nullptr;
+        CarpetAirplane* objCarpetAirplane = new CarpetAirplane;
         AT = objCarpetAirplane;
     }
     else if (numberTS == 6) {
